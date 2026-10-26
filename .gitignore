@@ -1,0 +1,26 @@
+.env
+.env.*
+!.env.example
+*.bak*
+*.backup
+*.before-git
+*.sql
+*.sql.gz
+*.log
+*.zip
+
+# Secrets and backups
+.env
+.env.*
+!.env.example
+*.safe-backup
+*.backup
+*.bak*
+*.before-git
+
+# Runtime data
+*.log
+*.sql
+*.sql.gz
+*.zip
+monitoring/mysql-exporter.cnf
