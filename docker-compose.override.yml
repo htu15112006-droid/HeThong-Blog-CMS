@@ -1,4 +1,10 @@
 services:
+  nginx:
+    ports:
+      - "443:443"
+    volumes:
+      - ./nginx/ssl:/etc/nginx/ssl:ro
+
   nginx-exporter:
     image: nginx/nginx-prometheus-exporter:1.5.1
     restart: unless-stopped

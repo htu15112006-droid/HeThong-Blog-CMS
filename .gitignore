@@ -24,3 +24,7 @@
 *.sql.gz
 *.zip
 monitoring/mysql-exporter.cnf
+
+# Local TLS secrets and backups
+nginx/ssl/
+.ssl-backups/
