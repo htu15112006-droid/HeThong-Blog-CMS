@@ -1,5 +1,24 @@
 # Đề 7 - Hệ thống Blog / CMS
 
+## Giao diện website tích hợp
+
+Theme `theme/cms-studio` cung cấp trang blog, đăng nhập, quản lý bài viết,
+danh mục, người dùng, xem dữ liệu và giám sát/log trong cùng website.
+Theme dùng tài khoản và dữ liệu WordPress hiện có.
+
+Hướng dẫn cài đặt và khôi phục: [STUDIO-HUONG-DAN.md](STUDIO-HUONG-DAN.md).
+Trên Ubuntu, sau khi tải repository, chạy:
+
+```bash
+bash install-studio.sh ~/qtri_csdl_lab
+```
+
+Chạy lệnh từ thư mục repository đã tải về, khi container WordPress đang hoạt động.
+Nếu dùng Windows, giữ `Cai-website.cmd` và `cms-studio-upgrade.tar.gz` cùng thư mục.
+Truy cập bằng địa chỉ `home`/`siteurl` đã cấu hình trong WordPress; với máy ảo
+hiện tại có thể dùng `http://192.168.181.128/` sau khi đặt hai tùy chọn đó tương ứng.
+Địa chỉ IP này thuộc mạng máy ảo, chưa phải website công khai trên Internet.
+
 Triển khai WordPress và MySQL bằng Docker Compose, sử dụng Nginx
 reverse proxy, Prometheus + Grafana để giám sát, Loki + Promtail
 để thu thập và truy vấn log.
