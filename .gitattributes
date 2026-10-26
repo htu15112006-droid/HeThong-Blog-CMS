@@ -1,0 +1,6 @@
+*.sh text eol=lf
+*.php text eol=lf
+*.js text eol=lf
+*.css text eol=lf
+*.cmd text eol=crlf
+*.tar.gz binary
