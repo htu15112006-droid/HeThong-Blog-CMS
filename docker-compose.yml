@@ -1,4 +1,3 @@
-
 services:
   mysql:
     image: mysql:8.0
@@ -11,6 +10,8 @@ services:
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     volumes:
       - mysql_cms_data:/var/lib/mysql
+    networks:
+      - db_net
 
   postgres:
     image: postgres:16
@@ -30,11 +31,13 @@ services:
     container_name: phpmyadmin
     restart: unless-stopped
     ports:
-      - "8082:80"
+      - "127.0.0.1:8082:80"
     environment:
       PMA_HOST: mysql
     depends_on:
       - mysql
+    networks:
+      - db_net
 
   pgadmin:
     image: dpage/pgadmin4:latest
@@ -62,6 +65,9 @@ services:
       - wordpress_data:/var/www/html
     depends_on:
       - mysql
+    networks:
+      - default
+      - db_net
 
   nginx:
     image: nginx:stable
@@ -127,6 +133,9 @@ services:
       - ./monitoring/mysql-exporter.cnf:/etc/mysql-exporter.cnf:ro
     depends_on:
       - mysql
+    networks:
+      - default
+      - db_net
 
   loki:
     image: grafana/loki:3.5.0
@@ -160,3 +169,8 @@ volumes:
   grafana_data:
   loki_data:
   promtail_positions:
+
+networks:
+  default: {}
+  db_net:
+    internal: true
